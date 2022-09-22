@@ -1,0 +1,11 @@
+version=4
+opts=\
+repacksuffix=+ds,\
+dversionmangle=s/\+(debian|dfsg|ds|deb)(\.\d+)?$//,\
+filenamemangle=s/.*\/v?([\d\.-]+)\.tar\.gz/node-source-map-support-$1.tar.gz/ \
+ https://github.com/evanw/node-source-map-support/tags .*/v?([\d.]+).tar.gz group
+
+# It is not recommended use npmregistry. Please investigate more.
+# Take a look at https://wiki.debian.org/debian/watch/
+opts="searchmode=plain,component=types-source-map-support,ctype=nodejs,pgpmode=none" \
+ https://registry.npmjs.org/@types/source-map-support https://registry.npmjs.org/@types/source-map-support/-/source-map-support-([\d\.]+)@ARCHIVE_EXT@ group

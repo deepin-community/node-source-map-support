@@ -1,0 +1,14 @@
+Description: ship TypeScript type definitions
+Author: Julien Puydt
+Forwarded: https://github.com/evanw/node-source-map-support/issues/285
+
+--- node-source-map-support.orig/package.json
++++ node-source-map-support/package.json
+@@ -3,6 +3,7 @@
+   "description": "Fixes stack traces for files with source maps",
+   "version": "0.5.20",
+   "main": "./source-map-support.js",
++  "types": "./index.d.ts",
+   "scripts": {
+     "build": "node build.js",
+     "serve-tests": "http-server -p 1336",

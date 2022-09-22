@@ -1,0 +1,31 @@
+Source: node-source-map-support
+Maintainer: Debian Javascript Maintainers <pkg-javascript-devel@alioth-lists.debian.net>
+Uploaders: Julien Puydt <jpuydt@debian.org>
+Section: javascript
+Testsuite: autopkgtest-pkg-nodejs
+Priority: optional
+Build-Depends: debhelper-compat (= 13),
+               nodejs,
+               mocha <!nocheck>,
+               node-assert <!nocheck>,
+               node-source-map <!nocheck>,
+               dh-sequence-nodejs
+Standards-Version: 4.6.0
+Vcs-Browser: https://salsa.debian.org/js-team/node-source-map-support
+Vcs-Git: https://salsa.debian.org/js-team/node-source-map-support.git
+Homepage: https://github.com/evanw/node-source-map-support
+Rules-Requires-Root: no
+
+Package: node-source-map-support
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends},
+         nodejs,
+         node-source-map
+Provides: ${nodejs:Provides}
+Description: Fixes stack traces for files with source maps
+ This module uses source-map to replace the paths and line numbers
+ of source-mapped files with their original counterparts in the real
+ sources.
+ .
+ Node.js is an event-based server-side JavaScript engine.

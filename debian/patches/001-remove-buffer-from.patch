@@ -1,0 +1,37 @@
+subject: remove depend on buffer-from
+author: Bastien Roucariès <rouca@debian.org>
+
+forwarded: not-needed
+
+--- node-source-map-support.orig/package.json
++++ node-source-map-support/package.json
+@@ -10,7 +10,6 @@
+     "test": "mocha"
+   },
+   "dependencies": {
+-    "buffer-from": "^1.0.0",
+     "source-map": "^0.6.0"
+   },
+   "devDependencies": {
+--- node-source-map-support.orig/source-map-support.js
++++ node-source-map-support/source-map-support.js
+@@ -12,7 +12,7 @@
+   /* nop */
+ }
+ 
+-var bufferFrom = require('buffer-from');
++var bufferFrom = Buffer.from;
+ 
+ /**
+  * Requires a module which is protected against bundler minification.
+--- node-source-map-support.orig/test.js
++++ node-source-map-support/test.js
+@@ -6,7 +6,7 @@
+ var child_process = require('child_process');
+ var assert = require('assert');
+ var fs = require('fs');
+-var bufferFrom = require('buffer-from');
++var bufferFrom = Buffer.from;
+ 
+ function compareLines(actual, expected) {
+   assert(actual.length >= expected.length, 'got ' + actual.length + ' lines but expected at least ' + expected.length + ' lines');
